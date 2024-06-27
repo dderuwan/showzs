@@ -30,7 +30,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='signin-container'>
-          <a href="/" className="signin flex">
+          <a href="Login" className="signin flex">
             <p><FaUserCircle className="icon" /> Sign in </p>
           </a>
         </div>

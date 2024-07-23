@@ -4,7 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import './movieManagement.css';
 
-const AddMovieManagement = ({ onSubmit }) => {
+const AddMovieManagement = () => {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
   const [trailerList, setTrailerList] = useState([]);
@@ -44,11 +44,17 @@ const AddMovieManagement = ({ onSubmit }) => {
         setFileList([]);
         setTrailerList([]);
         setModalVisible(false);
-        onSubmit({ ...movieValues, picture: fileList, trailer: trailerList });
+        // Call a local function to handle the movie data
+        handleLocalSubmit({ ...movieValues, picture: fileList, trailer: trailerList });
       }
     } catch (error) {
       console.error('Error adding movie or user:', error);
     }
+  };
+
+  const handleLocalSubmit = (movieData) => {
+    console.log('Movie data submitted:', movieData);
+    // Add additional logic for handling the submitted movie data
   };
 
   const handleUpload = ({ fileList }) => {
